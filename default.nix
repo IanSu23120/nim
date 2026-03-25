@@ -14,6 +14,20 @@ in
       ./nvim/init.lua
     ];
 
+    #rapperArgs = [
+    #  "--run"
+    #  "eval \"$(devenv direnvrc)\""
+    #];
+    wrapperArgs = [
+        "--run" ''
+        # 檢查當前目錄是否有 .envrc，有的話就加載環境
+        if [ -f .envrc ] && command -v direnv >/dev/null; then
+          echo "Devenv: Auto-loading environment via direnv..."
+          eval "$(direnv export bash)"
+        fi
+      ''
+    ];
+
     plugins = {
       dev.nim = {
         pure = ./nvim;

@@ -30,9 +30,15 @@
   # enhanced
   fidget-nvim
   tiny-inline-diagnostic-nvim
+  codediff-nvim
 
 
   # lsp
   rustaceanvim
   lazydev-nvim
+
+  # ui
+  tokyonight-nvim
+  lualine-nvim
+  nvim-tree-lua
 ]

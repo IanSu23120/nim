@@ -4,6 +4,7 @@
   fzf
   ripgrep
 
+
   # lua
   lua-language-server
   stylua
@@ -11,6 +12,4 @@
   # nix
   nixd
   nixfmt
-
-  ty
 ]

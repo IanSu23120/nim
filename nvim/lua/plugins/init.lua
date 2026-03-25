@@ -6,4 +6,6 @@ return {
     { import = "plugins.lsp" },
     { import = "plugins.termite" },
     { import = "plugins.treesitter" },
+    { import = "plugins.ui" },
+    { import = "plugins.utils" },
 }

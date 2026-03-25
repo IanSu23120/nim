@@ -1,5 +1,18 @@
 {
   "pins": {
+    "direnv.nvim": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "NotAShelf",
+        "repo": "direnv.nvim"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "9e58bb5e8db19d8bf2626de8e94a85fc305a8c1e",
+      "url": "https://github.com/NotAShelf/direnv.nvim/archive/9e58bb5e8db19d8bf2626de8e94a85fc305a8c1e.tar.gz",
+      "hash": "sha256-TlQ3oTRirUf/Po1KWCL4wDp8GgrJXzYWQx0C5qyZFeQ="
+    },
     "termite.nvim": {
       "type": "Git",
       "repository": {
