@@ -20,12 +20,16 @@
   colorful-menu-nvim
   lspkind-nvim
 
+  # formatter
   conform-nvim
 
-  tiny-inline-diagnostic-nvim
 
   fzf-lua
 
+
+  # enhanced
+  fidget-nvim
+  tiny-inline-diagnostic-nvim
 
 
   # lsp

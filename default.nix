@@ -17,7 +17,7 @@ in
     plugins = {
       dev.nim = {
         pure = ./nvim;
-        impure = "/home/IanSu/nim/nvim";
+        impure = "/home/iansu/nim/nvim";
       };
 
       start = import ./packages/start.nix {inherit pkgs;};

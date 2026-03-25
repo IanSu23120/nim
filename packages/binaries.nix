@@ -11,4 +11,6 @@
   # nix
   nixd
   nixfmt
+
+  ty
 ]

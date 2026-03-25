@@ -1,6 +1,6 @@
 return {
     "mini.tabline",
-    event = "BufReadPre",
+    event = "DeferredUIEnter",
     after = function()
         require("mini.tabline").setup()
     end,

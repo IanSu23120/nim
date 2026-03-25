@@ -16,7 +16,6 @@
     # this is rule for flake need to name packages
     packages = forAllSystems (system: pkgs: {
       default = import ./default.nix { inherit mnw pkgs inputs; };
-      # pkgs 物件本身就帶有 system 屬性字串
       dev = self.packages.${system}.default.devMode;
     });
 
