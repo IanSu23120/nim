@@ -14,6 +14,7 @@ with pkgs.vimPlugins;
   mini-move
   mini-jump2d
   mini-diff
+  mini-clue
 
   # git
   neogit

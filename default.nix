@@ -20,11 +20,6 @@ mnw.lib.wrap pkgs {
   luaFiles = [
     ./nvim/init.lua
   ];
-
-  #rapperArgs = [
-  #  "--run"
-  #  "eval \"$(devenv direnvrc)\""
-  #];
   wrapperArgs = [
     "--set"
     "SOPS_AGE_KEY_FILE"
@@ -40,11 +35,6 @@ mnw.lib.wrap pkgs {
             echo "nim: secrets 解密失敗，API keys 未載入" >&2
               fi
               fi
-
-              if [ -f .envrc ] && command -v direnv >/dev/null; then
-                echo "Devenv: Auto-loading environment via direnv..."
-                  eval "$(direnv export bash)"
-                  fi
     ''
   ];
 

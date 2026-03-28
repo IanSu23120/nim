@@ -1,5 +1,6 @@
 return {
 	{ import = "plugins.mini.mini-ai" },
+	{ import = "plugins.mini.mini-clue" },
 	{ import = "plugins.mini.mini-cursorword" },
 	{ import = "plugins.mini.mini-diff" },
 	{ import = "plugins.mini.mini-hipatterns" },
