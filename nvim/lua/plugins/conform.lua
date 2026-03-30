@@ -13,6 +13,8 @@ return {
 				html = { "prettier" },
 				css = { "prettier" },
 				markdown = { "prettier" },
+				yaml = { "prettier" },
+				json = { "prettier" },
 			},
 			format_on_save = {
 				timeout_ms = 500,
