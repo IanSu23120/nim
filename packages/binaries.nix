@@ -19,4 +19,6 @@ with pkgs;
   # nix
   nixd
   nixfmt
+
+  prettier
 ]
