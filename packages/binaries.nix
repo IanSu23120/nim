@@ -2,6 +2,7 @@
 { pkgs, ... }:
 with pkgs;
 [
+  direnv
   sops
   age
   xclip
