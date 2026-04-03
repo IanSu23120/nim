@@ -25,6 +25,9 @@ with pkgs.vimPlugins;
   friendly-snippets
   colorful-menu-nvim
   lspkind-nvim
+  blink-pairs
+  blink-cmp-words
+  blink-cmp-spell
 
   # formatter
   conform-nvim

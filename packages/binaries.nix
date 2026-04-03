@@ -2,6 +2,7 @@
 { pkgs, ... }:
 with pkgs;
 [
+  wordnet
   direnv
   sops
   age

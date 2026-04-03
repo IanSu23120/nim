@@ -1,9 +1,18 @@
 return {
 	{
+		"blink.pairs",
+		event = { "InsertEnter", "CmdlineEnter" },
+		after = function()
+			require("blink.pairs").setup({})
+		end,
+	},
+	{
 		"blink.cmp",
 		event = { "InsertEnter", "CmdlineEnter" },
 		dep_of = { "markview.nvim" },
 		after = function()
+			vim.opt.spell = true
+			vim.opt.spelllang = { "en" }
 			require("blink.cmp").setup({
 				cmdline = {
 					enabled = true,
@@ -70,11 +79,74 @@ return {
 					},
 				},
 				sources = {
-					default = { "lsp", "path", "snippets", "buffer" },
+					default = { "spell", "dictionary", "thesaurus", "lsp", "path", "snippets", "buffer" },
 					per_filetype = {
 						lua = { inherit_defaults = true, "lazydev" },
 					},
 					providers = {
+						spell = {
+							name = "Spell",
+							module = "blink-cmp-spell",
+							opts = {
+								-- EXAMPLE: Only enable source in `@spell` captures, and disable it
+								-- in `@nospell` captures.
+								enable_in_context = function()
+									local curpos = vim.api.nvim_win_get_cursor(0)
+									local captures = vim.treesitter.get_captures_at_pos(0, curpos[1] - 1, curpos[2] - 1)
+									local in_spell_capture = false
+									for _, cap in ipairs(captures) do
+										if cap.capture == "spell" then
+											in_spell_capture = true
+										elseif cap.capture == "nospell" then
+											return false
+										end
+									end
+									return in_spell_capture
+								end,
+							},
+						},
+						thesaurus = {
+							name = "blink-cmp-words",
+							module = "blink-cmp-words.thesaurus",
+							-- All available options
+							opts = {
+								-- A score offset applied to returned items.
+								-- By default the highest score is 0 (item 1 has a score of -1, item 2 of -2 etc..).
+								score_offset = 0,
+
+								-- Default pointers define the lexical relations listed under each definition,
+								-- see Pointer Symbols below.
+								-- Default is as below ("antonyms", "similar to" and "also see").
+								definition_pointers = { "!", "&", "^" },
+
+								-- The pointers that are considered similar words when using the thesaurus,
+								-- see Pointer Symbols below.
+								-- Default is as below ("similar to", "also see" }
+								similarity_pointers = { "&", "^" },
+
+								-- The depth of similar words to recurse when collecting synonyms. 1 is similar words,
+								-- 2 is similar words of similar words, etc. Increasing this may slow results.
+								similarity_depth = 2,
+							},
+						},
+
+						-- Use the dictionary source
+						dictionary = {
+							name = "blink-cmp-words",
+							module = "blink-cmp-words.dictionary",
+							-- All available options
+							opts = {
+								-- The number of characters required to trigger completion.
+								-- Set this higher if completion is slow, 3 is default.
+								dictionary_search_threshold = 3,
+
+								-- See above
+								score_offset = 0,
+
+								-- See above
+								definition_pointers = { "!", "&", "^" },
+							},
+						},
 						lazydev = { name = "LazyDev", module = "lazydev.integrations.blink", fallbacks = { "lsp" } },
 					},
 				},
@@ -99,6 +171,16 @@ return {
 	},
 	{
 		"friendly-snippets",
+		lazy = true,
+		dep_of = "blink.cmp",
+	},
+	{
+		"blink-cmp-words",
+		lazy = true,
+		dep_of = "blink.cmp",
+	},
+	{
+		"blink-cmp-spell",
 		lazy = true,
 		dep_of = "blink.cmp",
 	},
