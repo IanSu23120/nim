@@ -7,7 +7,7 @@ return {
 	{ import = "plugins.git" },
 	{ import = "plugins.lsp" },
 	{ import = "plugins.note" },
-	{ import = "plugins.treesitter" },
+	-- { import = "plugins.treesitter" },
 	{ import = "plugins.ui" },
 	{ import = "plugins.utils" },
 }

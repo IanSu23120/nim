@@ -1,4 +1,6 @@
-{pkgs}: with pkgs.vimPlugins;
+{ pkgs }:
+with pkgs.vimPlugins;
 [
+  nvim-treesitter.withAllGrammars
   lze
 ]

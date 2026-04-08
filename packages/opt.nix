@@ -1,7 +1,6 @@
 { pkgs }:
 with pkgs.vimPlugins;
 [
-  nvim-treesitter.withAllGrammars
 
   mini-icons
   mini-indentscope

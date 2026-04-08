@@ -6,11 +6,11 @@ vim.api.nvim_create_autocmd("ExitPre", {
 })
 
 -- 0.12 treesitter api
--- vim.api.nvim_create_autocmd("FileType", {
--- 	callback = function()
--- 		-- 檢查是否有對應的 parser 存在
--- 		if pcall(vim.treesitter.start) then
--- 			-- 成功啟動內建高亮
--- 		end
--- 	end,
--- })
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function()
+		-- Enable treesitter highlighting and disable regex syntax
+		pcall(vim.treesitter.start)
+		-- Enable treesitter-based indentation
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	end,
+})
